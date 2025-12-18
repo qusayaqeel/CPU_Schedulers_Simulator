@@ -1,0 +1,23 @@
+{
+    "input": {
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 3, "priority": 2, "quantum": 10},
+        {"name": "P2", "arrival": 2, "burst": 4, "priority": 3, "quantum": 12},
+        {"name": "P3", "arrival": 5, "burst": 2, "priority": 1, "quantum": 8},
+        {"name": "P4", "arrival": 8, "burst": 5, "priority": 4, "quantum": 15},
+        {"name": "P5", "arrival": 12, "burst": 3, "priority": 5, "quantum": 9}
+      ]
+    },
+    "expectedOutput": {
+      "executionOrder": ["P1","P2","P3","P2","P4","P5"],
+      "processResults": [
+        {"name": "P1", "waitingTime": 0, "turnaroundTime": 3, "quantumHistory": [10,0]},
+        {"name": "P2", "waitingTime": 3, "turnaroundTime": 7, "quantumHistory": [12,17,0]},
+        {"name": "P3", "waitingTime": 1, "turnaroundTime": 3, "quantumHistory": [8,0]},
+        {"name": "P4", "waitingTime": 1, "turnaroundTime": 6, "quantumHistory": [15,0]},
+        {"name": "P5", "waitingTime": 2, "turnaroundTime": 5, "quantumHistory": [9,0]}
+      ],
+      "averageWaitingTime": 1.4,
+      "averageTurnaroundTime": 4.8
+    }
+  }

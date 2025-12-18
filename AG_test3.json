@@ -1,0 +1,25 @@
+{
+    "input": {
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 20, "priority": 5, "quantum": 8},
+        {"name": "P2", "arrival": 3, "burst": 4, "priority": 3, "quantum": 6},
+        {"name": "P3", "arrival": 6, "burst": 3, "priority": 4, "quantum": 5},
+        {"name": "P4", "arrival": 10, "burst": 2, "priority": 2, "quantum": 4},
+        {"name": "P5", "arrival": 15, "burst": 5, "priority": 6, "quantum": 7},
+        {"name": "P6", "arrival": 20, "burst": 6, "priority": 1, "quantum": 3}
+      ]
+    },
+    "expectedOutput": {
+      "executionOrder": ["P1","P2","P1","P4","P3","P1","P6","P5","P6","P1","P5"],
+      "processResults": [
+        {"name": "P1", "waitingTime": 17, "turnaroundTime": 37, "quantumHistory": [8,12,17,23,0]},
+        {"name": "P2", "waitingTime": 1, "turnaroundTime": 5, "quantumHistory": [6,0]},
+        {"name": "P3", "waitingTime": 7, "turnaroundTime": 10, "quantumHistory": [5,0]},
+        {"name": "P4", "waitingTime": 1, "turnaroundTime": 3, "quantumHistory": [4,0]},
+        {"name": "P5", "waitingTime": 20, "turnaroundTime": 25, "quantumHistory": [7,10,0]},
+        {"name": "P6", "waitingTime": 3, "turnaroundTime": 9, "quantumHistory": [3,5,0]}
+      ],
+      "averageWaitingTime": 8.17,
+      "averageTurnaroundTime": 14.83
+    }
+  }

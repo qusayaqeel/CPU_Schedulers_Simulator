@@ -1,0 +1,57 @@
+{
+    "name": "Test Case 6: Mixed scenario - comprehensive test",
+    "input": {
+      "contextSwitch": 1,
+      "rrQuantum": 4,
+      "agingInterval": 5,
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 14, "priority": 4},
+        {"name": "P2", "arrival": 3, "burst": 7, "priority": 2},
+        {"name": "P3", "arrival": 6, "burst": 10, "priority": 5},
+        {"name": "P4", "arrival": 9, "burst": 5, "priority": 1},
+        {"name": "P5", "arrival": 12, "burst": 8, "priority": 3},
+        {"name": "P6", "arrival": 15, "burst": 4, "priority": 6}
+      ]
+    },
+    "expectedOutput": {
+      "SJF": {
+        "executionOrder": ["P1", "P2", "P4", "P6", "P5", "P3", "P1"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 40, "turnaroundTime": 54},
+          {"name": "P2", "waitingTime": 1, "turnaroundTime": 8},
+          {"name": "P3", "waitingTime": 26, "turnaroundTime": 36},
+          {"name": "P4", "waitingTime": 3, "turnaroundTime": 8},
+          {"name": "P5", "waitingTime": 11, "turnaroundTime": 19},
+          {"name": "P6", "waitingTime": 3, "turnaroundTime": 7}
+        ],
+        "averageWaitingTime": 14.0,
+        "averageTurnaroundTime": 22.0
+      },
+      "RR": {
+        "executionOrder": ["P1", "P2", "P1", "P3", "P4", "P2", "P5", "P1", "P6", "P3", "P4", "P5", "P1", "P3"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 44, "turnaroundTime": 58},
+          {"name": "P2", "waitingTime": 18, "turnaroundTime": 25},
+          {"name": "P3", "waitingTime": 45, "turnaroundTime": 55},
+          {"name": "P4", "waitingTime": 36, "turnaroundTime": 41},
+          {"name": "P5", "waitingTime": 35, "turnaroundTime": 43},
+          {"name": "P6", "waitingTime": 24, "turnaroundTime": 28}
+        ],
+        "averageWaitingTime": 33.67,
+        "averageTurnaroundTime": 41.67
+      },
+      "Priority": {
+        "executionOrder": ["P1", "P2", "P4", "P2", "P1", "P5", "P3", "P1", "P6", "P1"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 43, "turnaroundTime": 57},
+          {"name": "P2", "waitingTime": 8, "turnaroundTime": 15},
+          {"name": "P3", "waitingTime": 31, "turnaroundTime": 41},
+          {"name": "P4", "waitingTime": 1, "turnaroundTime": 6},
+          {"name": "P5", "waitingTime": 16, "turnaroundTime": 24},
+          {"name": "P6", "waitingTime": 36, "turnaroundTime": 40}
+        ],
+        "averageWaitingTime": 22.5,
+        "averageTurnaroundTime": 30.5
+      }
+    }
+  }

@@ -1,0 +1,57 @@
+{
+    "name": "Test Case 4: Large bursts with gaps in arrivals",
+    "input": {
+      "contextSwitch": 2,
+      "rrQuantum": 5,
+      "agingInterval": 6,
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 12, "priority": 2},
+        {"name": "P2", "arrival": 4, "burst": 9, "priority": 3},
+        {"name": "P3", "arrival": 8, "burst": 15, "priority": 1},
+        {"name": "P4", "arrival": 12, "burst": 6, "priority": 4},
+        {"name": "P5", "arrival": 16, "burst": 11, "priority": 2},
+        {"name": "P6", "arrival": 20, "burst": 5, "priority": 5}
+      ]
+    },
+    "expectedOutput": {
+      "SJF": {
+        "executionOrder": ["P1", "P4", "P6", "P2", "P5", "P3"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 0, "turnaroundTime": 12},
+          {"name": "P2", "waitingTime": 25, "turnaroundTime": 34},
+          {"name": "P3", "waitingTime": 45, "turnaroundTime": 60},
+          {"name": "P4", "waitingTime": 2, "turnaroundTime": 8},
+          {"name": "P5", "waitingTime": 24, "turnaroundTime": 35},
+          {"name": "P6", "waitingTime": 2, "turnaroundTime": 7}
+        ],
+        "averageWaitingTime": 16.33,
+        "averageTurnaroundTime": 26.0
+      },
+      "RR": {
+        "executionOrder": ["P1", "P2", "P1", "P3", "P4", "P2", "P5", "P1", "P6", "P3", "P4", "P5", "P3", "P5"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 38, "turnaroundTime": 50},
+          {"name": "P2", "waitingTime": 26, "turnaroundTime": 35},
+          {"name": "P3", "waitingTime": 58, "turnaroundTime": 73},
+          {"name": "P4", "waitingTime": 49, "turnaroundTime": 55},
+          {"name": "P5", "waitingTime": 57, "turnaroundTime": 68},
+          {"name": "P6", "waitingTime": 32, "turnaroundTime": 37}
+        ],
+        "averageWaitingTime": 43.33,
+        "averageTurnaroundTime": 53.0
+      },
+      "Priority": {
+        "executionOrder": ["P1", "P3", "P1", "P2", "P3", "P5", "P4", "P2", "P6", "P5", "P2"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 14, "turnaroundTime": 26},
+          {"name": "P2", "waitingTime": 65, "turnaroundTime": 74},
+          {"name": "P3", "waitingTime": 16, "turnaroundTime": 31},
+          {"name": "P4", "waitingTime": 38, "turnaroundTime": 44},
+          {"name": "P5", "waitingTime": 48, "turnaroundTime": 59},
+          {"name": "P6", "waitingTime": 44, "turnaroundTime": 49}
+        ],
+        "averageWaitingTime": 37.5,
+        "averageTurnaroundTime": 47.17
+      }
+    }
+  }

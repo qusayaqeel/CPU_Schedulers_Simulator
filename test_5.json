@@ -1,0 +1,53 @@
+{
+    "name": "Test Case 5: Short bursts with high frequency",
+    "input": {
+      "contextSwitch": 1,
+      "rrQuantum": 2,
+      "agingInterval": 3,
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 3, "priority": 3},
+        {"name": "P2", "arrival": 1, "burst": 2, "priority": 1},
+        {"name": "P3", "arrival": 2, "burst": 4, "priority": 2},
+        {"name": "P4", "arrival": 3, "burst": 1, "priority": 4},
+        {"name": "P5", "arrival": 4, "burst": 3, "priority": 5}
+      ]
+    },
+    "expectedOutput": {
+      "SJF": {
+        "executionOrder": ["P1", "P4", "P2", "P5", "P3"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 0, "turnaroundTime": 3},
+          {"name": "P2", "waitingTime": 5, "turnaroundTime": 7},
+          {"name": "P3", "waitingTime": 11, "turnaroundTime": 15},
+          {"name": "P4", "waitingTime": 1, "turnaroundTime": 2},
+          {"name": "P5", "waitingTime": 5, "turnaroundTime": 8}
+        ],
+        "averageWaitingTime": 4.4,
+        "averageTurnaroundTime": 7.0
+      },
+      "RR": {
+        "executionOrder": ["P1", "P2", "P3", "P1", "P4", "P5", "P3", "P5"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 7, "turnaroundTime": 10},
+          {"name": "P2", "waitingTime": 2, "turnaroundTime": 4},
+          {"name": "P3", "waitingTime": 12, "turnaroundTime": 16},
+          {"name": "P4", "waitingTime": 8, "turnaroundTime": 9},
+          {"name": "P5", "waitingTime": 13, "turnaroundTime": 16}
+        ],
+        "averageWaitingTime": 8.4,
+        "averageTurnaroundTime": 11.0
+      },
+      "Priority": {
+        "executionOrder": ["P1", "P2", "P1", "P3", "P1", "P4", "P5", "P1"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 17, "turnaroundTime": 20},
+          {"name": "P2", "waitingTime": 1, "turnaroundTime": 3},
+          {"name": "P3", "waitingTime": 5, "turnaroundTime": 9},
+          {"name": "P4", "waitingTime": 10, "turnaroundTime": 11},
+          {"name": "P5", "waitingTime": 11, "turnaroundTime": 14}
+        ],
+        "averageWaitingTime": 8.8,
+        "averageTurnaroundTime": 11.4
+      }
+    }
+  }

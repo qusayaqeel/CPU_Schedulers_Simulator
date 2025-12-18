@@ -1,0 +1,53 @@
+{
+    "name": "Test Case 3: Varied burst times with starvation risk",
+    "input": {
+      "contextSwitch": 1,
+      "rrQuantum": 4,
+      "agingInterval": 4,
+      "processes": [
+        {"name": "P1", "arrival": 0, "burst": 10, "priority": 5},
+        {"name": "P2", "arrival": 2, "burst": 5, "priority": 1},
+        {"name": "P3", "arrival": 5, "burst": 3, "priority": 2},
+        {"name": "P4", "arrival": 8, "burst": 7, "priority": 1},
+        {"name": "P5", "arrival": 10, "burst": 2, "priority": 3}
+      ]
+    },
+    "expectedOutput": {
+      "SJF": {
+        "executionOrder": ["P1", "P2", "P3", "P5", "P4", "P1"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 22, "turnaroundTime": 32},
+          {"name": "P2", "waitingTime": 1, "turnaroundTime": 6},
+          {"name": "P3", "waitingTime": 4, "turnaroundTime": 7},
+          {"name": "P4", "waitingTime": 8, "turnaroundTime": 15},
+          {"name": "P5", "waitingTime": 3, "turnaroundTime": 5}
+        ],
+        "averageWaitingTime": 7.6,
+        "averageTurnaroundTime": 13.0
+      },
+      "RR": {
+        "executionOrder": ["P1", "P2", "P1", "P3", "P4", "P2", "P5", "P1", "P4"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 21, "turnaroundTime": 31},
+          {"name": "P2", "waitingTime": 18, "turnaroundTime": 23},
+          {"name": "P3", "waitingTime": 10, "turnaroundTime": 13},
+          {"name": "P4", "waitingTime": 20, "turnaroundTime": 27},
+          {"name": "P5", "waitingTime": 16, "turnaroundTime": 18}
+        ],
+        "averageWaitingTime": 17.0,
+        "averageTurnaroundTime": 22.4
+      },
+      "Priority": {
+        "executionOrder": ["P1", "P2", "P4", "P3", "P4", "P1", "P5", "P1"],
+        "processResults": [
+          {"name": "P1", "waitingTime": 24, "turnaroundTime": 34},
+          {"name": "P2", "waitingTime": 1, "turnaroundTime": 6},
+          {"name": "P3", "waitingTime": 9, "turnaroundTime": 12},
+          {"name": "P4", "waitingTime": 6, "turnaroundTime": 13},
+          {"name": "P5", "waitingTime": 13, "turnaroundTime": 15}
+        ],
+        "averageWaitingTime": 10.6,
+        "averageTurnaroundTime": 16.0
+      }
+    }
+  }
